@@ -25,9 +25,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
+   
+    private final EmployeeRepository employeeRepository;
+    
     @Autowired
-    private EmployeeRepository employeeRepository;
-
+    Public EmployeeController(EmployeeRepository employeeRepository){
+        This.employeeRepository = employeeRepository;
+    }
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
